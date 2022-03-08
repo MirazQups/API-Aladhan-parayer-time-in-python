@@ -1,5 +1,7 @@
 import requests
 
+from test_data.api_enpoints import prayer_times_calendar_by_address
+
 
 def data_from_server(method="", endpoint="", headers="", params=""):
     res = requests.request(method, endpoint, headers=headers, data=params)
@@ -17,3 +19,7 @@ def post_data():
 def data_for_post(url="", data={}):
     res = requests.post(url, data)
     return res
+
+
+response1 = requests.request("GET", prayer_times_calendar_by_address)
+body = response1.json()
